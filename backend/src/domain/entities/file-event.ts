@@ -4,6 +4,5 @@ export default class FileEvent {
 	constructor(
 		public readonly event: FileEvents,
 		public readonly path: string,
-		public readonly fileName: string,
 	) {}
 }

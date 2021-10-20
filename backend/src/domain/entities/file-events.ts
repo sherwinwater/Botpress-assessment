@@ -1,5 +1,6 @@
 export enum FileEvents {
-	deleted,
-	modified,
-	created
+	deleted = 'deleted',
+	created = 'created',
+	dirCreated = 'dirCreated',
+	dirRemoved = 'dirRemoved'
 }
