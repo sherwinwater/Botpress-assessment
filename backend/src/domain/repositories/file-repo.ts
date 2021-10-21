@@ -1,6 +1,6 @@
-import {FileEvent} from "botpress-shared/lib/entities";
-import {Observable} from 'rxjs';
+import { FileEvent } from "botpress-shared/lib/entities";
+import { Observable } from "rxjs";
 
 export default interface FileRepo {
-	watchFolder(folderUri: string): Observable<FileEvent>;
+  watchFolder(folderUri: string[]): Observable<FileEvent>;
 }

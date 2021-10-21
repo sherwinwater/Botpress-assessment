@@ -1,22 +1,28 @@
-import express from 'express';
-import http from 'http';
-import {Server} from 'socket.io';
+import express from "express";
+import http from "http";
+import { Server } from "socket.io";
+import LocalFileRepo from "../data/local-file-repo";
+import FileService from "../domain/services/file-service";
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server)
+const io = new Server(server);
+
+const filePaths = process.argv.slice(1, process.argv.length - 1);
+const fileService = new FileService(filePaths, new LocalFileRepo());
 
 io.on("connection", (socket) => {
-	console.log("userConnection");
-})
-
-app.get('/', (req, res) => {
-  res.sendFile(process.cwd() + '/files/index.html');
+  fileService
+    .watchFolders()
+    .subscribe((event) => socket.emit("file-event", event));
 });
 
+app.get("/", (req, res) => {
+  res.sendFile(process.cwd() + "/files/index.html");
+});
 
-export default function() {
-	server.listen(3000, () => {
-		console.log("Starting server on port 3000");
-	})
-};
+export default function () {
+  server.listen(3000, () => {
+    console.log("Starting server on port 3000");
+  });
+}

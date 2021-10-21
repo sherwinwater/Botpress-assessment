@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { fileContext } from "../file-context";
+import FileChangeProvider from "./file-change-provider";
 
 export default function Home() {
-	return <div>
-		<h1>Hello Botpress reviewer!</h1>
+  return (
+    <fileContext.Provider value={[]}>
+      <div>
+        <h1>Hello Botpress reviewer!</h1>
 
-		<div>This is the body</div>
-	</div>
+        <FileChangeProvider />
+      </div>
+    </fileContext.Provider>
+  );
 }
