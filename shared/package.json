@@ -1,0 +1,14 @@
+{
+	"name": "botpress-shared",
+	"version": "1.0.0",
+	"description": "This is where all the shared code between the backend and frontend is stored",
+	"main": "lib/index.js",
+	"scripts": {
+		"build": "tsc"
+	},
+	"author": "Jeremy Aube",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^4.4.4"
+	}
+}

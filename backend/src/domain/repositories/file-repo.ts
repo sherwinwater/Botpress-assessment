@@ -1,4 +1,4 @@
-import FileEvent from "../entities/file-event";
+import {FileEvent} from "botpress-shared/lib/entities";
 import {Observable} from 'rxjs';
 
 export default interface FileRepo {

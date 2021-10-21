@@ -1,8 +1,7 @@
 import { Observable } from "rxjs";
-import FileEvent from "../domain/entities/file-event";
+import {FileEvent, FileEvents} from "botpress-shared/lib/entities";
 import FileRepo from "../domain/repositories/file-repo";
 import chokidar from 'chokidar';
-import { FileEvents } from "../domain/entities/file-events";
 
 export default class LocalFileRepo implements FileRepo {
 	public watchFolder(folderUri: string): Observable<FileEvent> {
