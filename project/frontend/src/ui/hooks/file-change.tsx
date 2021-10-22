@@ -9,7 +9,6 @@ export default function useFileChange() {
   useEffect(() => {
     const fileService = new FileService(new SocketIOFileWatcher());
     fileService.onFileEvents().subscribe((newFolderStructure) => {
-      console.log(newFolderStructure);
       setFolders(newFolderStructure);
     });
   }, []);

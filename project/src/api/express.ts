@@ -1,5 +1,6 @@
 import express from "express";
 import http from "http";
+import path from "path";
 import { Server } from "socket.io";
 import LocalFileRepo from "../data/local-file-repo";
 import FileService from "../domain/services/file-service";
@@ -18,12 +19,14 @@ io.on("connection", (socket) => {
     .subscribe((event) => socket.emit("file-event", event));
 });
 
+app.use(express.static(path.join(process.cwd(), "frontend", "build")));
+
 app.get("/", (req, res) => {
-  res.sendFile(process.cwd() + "/files/index.html");
+  res.sendFile(path.join(process.cwd(), "frontend", "build", "index.html"));
 });
 
 export default function () {
   server.listen(3000, () => {
-    console.log("Starting server on port 3000");
+    console.log("Starting server at http://localhost:3000");
   });
 }

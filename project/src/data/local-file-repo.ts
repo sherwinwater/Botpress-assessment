@@ -18,7 +18,6 @@ export default class LocalFileRepo implements FileRepo {
       `[${changedRootIndex}] ${changeRoot}`
     );
 
-    console.log(relativePath);
     return relativePath;
   }
 
