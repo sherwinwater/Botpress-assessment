@@ -1,0 +1,15 @@
+.fileSystem {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  width: 50%;
+  height: fit-content;
+
+  background-color: #464646;
+}
+
+.fileSystemContainer {
+  width: 100%;
+  display: flex;
+}

@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import Folder from "./domain/repositories/folder";
+import Folder from "./domain/entities/folder";
 
 export const defaultValues = {
   folders: [] as Array<Folder>,

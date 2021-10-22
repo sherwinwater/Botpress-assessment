@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import SocketIOFileWatcher from "../../api/socketio-file-watcher";
 import FileService from "../../domain/file-service";
-import Folder from "../../domain/repositories/folder";
+import Folder from "../../domain/entities/folder";
 
 export default function useFileChange() {
   const [folders, setFolders] = useState<Folder[]>([]);

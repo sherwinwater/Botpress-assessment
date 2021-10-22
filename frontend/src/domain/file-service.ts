@@ -1,7 +1,7 @@
 import { FileEvents } from "botpress-shared/lib/entities";
 import { Observable, Subject } from "rxjs";
-import FileWatcherEndpoint from "./repositories/file-watcher-endpoint";
-import Folder from "./repositories/folder";
+import FileWatcherEndpoint from "./entities/file-watcher-endpoint";
+import Folder from "./entities/folder";
 
 export default class FileService {
   private folders: Folder[] = [];
@@ -47,6 +47,14 @@ export default class FileService {
         case FileEvents.dirRemoved:
           modifiedFolder.removeFolder(paths);
           break;
+        case FileEvents.created:
+          modifiedFolder.addFile(paths);
+          break;
+        case FileEvents.deleted:
+          modifiedFolder.removeFile(paths);
+          break;
+        default:
+          return;
       }
 
       const filteredFolders = this.folders.filter(

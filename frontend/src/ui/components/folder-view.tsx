@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Folder from "../../domain/repositories/folder";
+import Folder from "../../domain/entities/folder";
 import FileView from "./file-view";
 import { FaFolder, FaFolderOpen } from "react-icons/fa";
 import "./folder-view.css";
@@ -13,7 +13,7 @@ export default function FolderView({ folder }: Props) {
 
   return (
     <div>
-      <p onClick={() => setOpen(!opened)}>
+      <p className="folder" onClick={() => setOpen(!opened)}>
         <span className="folderIcon">
           {opened ? <FaFolderOpen /> : <FaFolder />}
         </span>

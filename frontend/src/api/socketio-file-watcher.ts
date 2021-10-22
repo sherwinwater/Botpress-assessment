@@ -1,7 +1,7 @@
 import { Observable } from "rxjs";
 import io from "socket.io-client";
 import { FileEvent } from "botpress-shared/lib/entities";
-import FileWatcherEndpoint from "../domain/repositories/file-watcher-endpoint";
+import FileWatcherEndpoint from "../domain/entities/file-watcher-endpoint";
 
 export default class SocketIOFileWatcher implements FileWatcherEndpoint {
   constructor() {}

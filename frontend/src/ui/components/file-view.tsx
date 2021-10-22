@@ -1,9 +1,15 @@
-import File from "../../domain/repositories/file";
+import File from "../../domain/entities/file";
+import { FaFile } from "react-icons/fa";
+import "./file-view.css";
 
 type Props = {
   file: File;
 };
 
 export default function FileView({ file }: Props) {
-  return <p>{file.name}</p>;
+  return (
+    <div className="file">
+      <FaFile /> {file.name}
+    </div>
+  );
 }

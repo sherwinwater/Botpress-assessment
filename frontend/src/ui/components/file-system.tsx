@@ -1,14 +1,19 @@
-import Folder from "../../domain/repositories/folder";
+import Folder from "../../domain/entities/folder";
 import FolderView from "./folder-view";
+import "./file-system.css";
 
 type Props = {
-  folder: Folder;
+  folders: Folder[];
 };
 
 export default function FileSystem(props: Props) {
   return (
-    <section>
-      <FolderView folder={props.folder} />
+    <section className="fileSystemContainer">
+      {props.folders.map((folder) => (
+        <section className="fileSystem">
+          <FolderView folder={folder} />
+        </section>
+      ))}
     </section>
   );
 }
