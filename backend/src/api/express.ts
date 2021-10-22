@@ -8,7 +8,8 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
-const filePaths = process.argv.slice(1, process.argv.length - 1);
+const filePaths = process.argv.slice(2);
+console.log(`watching files: `, filePaths);
 const fileService = new FileService(filePaths, new LocalFileRepo());
 
 io.on("connection", (socket) => {

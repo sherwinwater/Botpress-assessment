@@ -1,19 +1,13 @@
-import { useContext } from "react";
-import SocketIOFileWatcher from "../api/socketio-file-watcher";
-import FileService from "../domain/file-service";
-import { fileContext } from "../file-context";
 import FileSystem from "./components/file-system";
+import useFileChange from "./hooks/file-change";
 
 export default function FileChangeProvider() {
-  const context = useContext(fileContext);
-
-  const fileService = new FileService(new SocketIOFileWatcher());
-  fileService.onFileEvents();
+  const folders = useFileChange();
 
   return (
     <>
-      {context.map((folder) => (
-        <FileSystem folder={folder} />
+      {folders.map((folder) => (
+        <FileSystem folder={folder} key={folder.name} />
       ))}
     </>
   );
